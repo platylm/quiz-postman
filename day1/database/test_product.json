@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "37f5a16b-f091-479a-b181-b1476feacf7c",
+		"name": "mock_product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "29429cbb-9f8c-471e-a661-aa7d40c07f20",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Product ID is \"+ data[\"product_id\"] , function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.product_id).to.eql(data[\"product_id\"]);",
+							"});",
+							"",
+							"pm.test(\"Product Name is \"+ data[\"product_name\"] , function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.product_name).to.eql(data[\"product_name\"]);",
+							"});",
+							"",
+							"pm.test(\"Price is \"+ data[\"price\"] , function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.price).to.eql(data[\"price\"]);",
+							"});",
+							"",
+							"pm.test(\"Recommend vote is \"+ data[\"vote\"] , function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.recommend.vote).to.eql(data[\"vote\"]);",
+							"});",
+							"",
+							"pm.test(\"Recommend comment is \"+ data[\"comment\"] , function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.recommend.comment).to.eql(data[\"comment\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/product",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"product_id\": 1,\n    \"product_name\": \"แปรงสีฟัน\",\n    \"price\": 15,\n    \"recommend\": {\n        \"vote\": 5,\n        \"comment\": \"แปรงทีขี้ฟันกระจาย\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

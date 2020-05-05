@@ -1,0 +1,15 @@
+{
+	"id": "5cec474b-e899-43f6-bce0-7d107378c01c",
+	"name": "mock_product",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://81df927a-917c-4f0d-96fb-29c1550f26bf.mock.pstmn.io",
+			"type": "text",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-05-05T08:13:45.709Z",
+	"_postman_exported_using": "Postman/7.23.0"
+}
