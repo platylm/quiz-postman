@@ -1,0 +1,28 @@
+version: "3.7"
+
+services: 
+  database-mysql:
+    container_name: database-mysql
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=sealteam
+      - MYSQL_PASSWORD=sckshuhari
+      - MYSQL_DATABASE=store
+    volumes:
+      - ./tearup/tearup.sql:/docker-entrypoint-initdb.d/tearup.sql
+    ports:
+      - "3306:3306"
+    
+  api-service-xmysql:
+    container_name: api-service-xmysql
+    image: markuman/xmysql
+    restart: always
+    environment: 
+      - DATABASE_HOST=database-mysql
+      - DATABASE_USER=sealteam
+      - DATABASE_PASSWORD=sckshuhari
+      - DATABASE_NAME=store
+    ports: 
+      - "2000:80"
+      
