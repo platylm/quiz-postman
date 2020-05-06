@@ -1,0 +1,12 @@
+version: "3.7"
+
+services: 
+  stub-api-service:
+    image: jkris/mountebank:2.0.0
+    volumes: 
+      - ./stub/milk_service.json:/stub/milk_service.json
+    command: --configfile /stub/milk_service.json
+    ports: 
+      - "2525:2525"
+      - "3000:3000"
+
