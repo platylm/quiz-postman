@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "8e307fc5-3b3b-4f73-bb66-91cd63b596ef",
+		"name": "store_milk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "insert milk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d9afeba-e63f-479a-87ec-dcf8a3f90918",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"price\": {{price}},\n    \"weight\": {{weight}},\n    \"quantity\": {{quantity}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/milk",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"milk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d64a7b7-03f0-4f84-8139-9ac810d06e51",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/milk",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"milk"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,14 @@
+{
+	"id": "53077881-07b3-443b-ae67-a20150ed304f",
+	"name": "local_store_milk",
+	"values": [
+		{
+			"key": "url",
+			"value": "http://localhost:2000",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-05-05T16:35:57.209Z",
+	"_postman_exported_using": "Postman/7.23.0"
+}
