@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "0ce4ae7f-3653-4112-927f-f54f45ad4d5f",
+		"name": "buy milk quantity 5 price 20 and total 100",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "แสดงรายการสินค้า 3 ชิ้นและมีนมยูเอชทีปราศจากน้ําตาลแลคโตส",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2caf8c56-78c9-4cc0-9617-16dce6543fac",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"สินค้าในร้านมี 3 รายการ\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(3);",
+							"});",
+							"",
+							"pm.test(\"มีสินค้าที่ต้องการ คือ \"+data[\"name\"], function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[2].name).to.eql(data[\"name\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/product",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "เลือกนมยูเอชทีปราศจากน้ําตาลแลคโตส จำนวน 5 ชิ้นได้สำเร็จ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "abb4157d-a966-422f-bae9-f4628c600b8f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {{id}},\n    \"name\": \"{{name}}\",\n    \"price\": {{price}},\n    \"weight\": {{weight}},\n    \"quantity\": {{quantity}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/selected",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"selected"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "มีนมยูเอชทีปราศจากน้ำตาลแลคโตส จำนวน 5 ชิ้น เป็นเงิน 100 บาท",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33d0a46f-92a6-4b8d-a938-60a4bd670c9a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Name \"+data[\"name\"], function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(data[\"name\"]);",
+							"});",
+							"",
+							"pm.test(\"Pricec \"+data[\"price\"], function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.price).to.eql(data[\"price\"]);",
+							"});",
+							"",
+							"pm.test(\"Weight \"+data[\"weight\"], function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.weight).to.eql(data[\"weight\"]);",
+							"});",
+							"",
+							"pm.test(\"Quantity \"+data[\"quantity\"], function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.quantity).to.eql(data[\"quantity\"]);",
+							"});",
+							"",
+							"pm.test(\"Total price \"+data[\"total_price\"], function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.total_price).to.eql(data[\"total_price\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/summary",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"summary"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
